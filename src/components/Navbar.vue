@@ -12,7 +12,7 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon" />
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -23,11 +23,13 @@
               <router-link class="nav-link" to="/foods">Foods</router-link>
             </li>
           </ul>
-           <ul class="navbar-nav ml-auto0">
+          <ul class="navbar-nav ml-auto0">
             <li class="nav-item">
-              <router-link class="nav-link" to="/keranjang">Keranjang <b-icon-bag></b-icon-bag> <span class="badge badge-success ml-2">0</span></router-link>
+              <router-link class="nav-link" to="/keranjang">
+                Keranjang <b-icon-bag />
+                <span class="badge badge-success ml-2">0</span>
+              </router-link>
             </li>
-        
           </ul>
         </div>
       </div>
@@ -37,7 +39,7 @@
 
 <script>
 export default {
-  name: "NavbarPage",
+  name: "NavbarComponent",
 };
 </script>
 
