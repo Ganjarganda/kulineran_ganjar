@@ -2,6 +2,7 @@
   <div class="food-detail">
     <Navbar />
     <div class="container">
+      <!-- breadcrumb -->
       <div class="row mt-5">
         <div class="col">
           <nav aria-label="breadcrumb">
@@ -19,18 +20,64 @@
           </nav>
         </div>
       </div>
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <img class="img-fluid shadow" :src="'/assets/images/' + product.gambar" alt="">
+        </div>
+        <div class="col-md-6">
+          <h2><strong>{{product.nama}}</strong></h2>
+          <hr />
+          <h4>Harga: <strong>Rp{{product.harga}}</strong></h4>
+          <form class="mt-4">
+            <div class="form-group">
+                <label for="jumlah_pemesanan">Jumlah Pesan</label>
+                <input type="number" class="form-control" placeholder="1">
+            </div>
+              <div class="form-group">
+                <label for="keterangan">Keterangan</label>
+                <textarea class="form-control" placeholder="Keterangan contoh Pedas, Nasi setengah dll..." />
+            </div>
+            <button type="submit" class="btn btn-success"><b-icon-cart /> Pesan</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Navbar from "@/components/Navbar";
+import Navbar from '@/components/Navbar';
+import axios from 'axios';
 
 export default {
   name: "FoodDetailView",
   components: {
     Navbar,
+  },
+  data() {
+    return {
+        product: {}
+    }
+  },
+  methods:{
+    setProduct(data) {
+        this.product = data
+    }
+  },
+    mounted() {
+    // Make a request using GET
+    axios
+      .get("http://localhost:3000/products/"+this.$route.params.id)
+      .then((response) => {
+        // handle success
+        console.log("Berhasil : ", response);
+        this.setProduct(response.data);
+      })
+      .catch((error) => {
+        // handle error
+        console.log("Gagal : ", error);
+      });
   },
 };
 </script>

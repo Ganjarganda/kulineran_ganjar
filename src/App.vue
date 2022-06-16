@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <router-view/>
-    <Footer />
+    <FooterComponent />
   </div>
 </template>
 
 <script>
-import Footer from "@/components/Footer.vue"
+import FooterComponent from '@/components/Footer'
 
 export default {
   components: {
-    Footer
+    FooterComponent,
   }
 }
 </script>

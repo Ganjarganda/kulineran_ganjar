@@ -26,10 +26,10 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import CardProduct from "@/components/CardProduct";
-import axios from "axios";
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import CardProduct from '@/components/CardProduct';
+import axios from 'axios';
 
 export default {
   name: "HomeView",
