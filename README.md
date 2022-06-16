@@ -20,8 +20,10 @@ npm run build
 npm run lint
 ```
 
+### run UI Vue Project Manager
+```
+vue ui
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### run UI Vue Project Manager
-vue ui
