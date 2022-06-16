@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import FoodsView from '../views/FoodView.vue'
+// @ is an alias to /src
+import HomeView from '@/views/HomeView'
+import FoodsView from '@/views/FoodView'
+import FoodDetailView from '@/views/FoodDetailView'
 
 Vue.use(VueRouter)
 
@@ -15,6 +17,11 @@ const routes = [
     path: '/foods',
     name: 'Foods',
     component: FoodsView
+  },
+  {
+    path: '/foods/:id',
+    name: 'FoodDetail ',
+    component: FoodDetailView
   },
   {
     path: '/about',

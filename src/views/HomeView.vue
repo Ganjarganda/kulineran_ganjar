@@ -16,7 +16,7 @@
       </div>
 
       <div class="row mb-4">
-        <div class="col-md-4 mt-d" v-for="item_product in products" :key="item_product.id">
+        <div class="col-md-4 mt-4" v-for="item_product in products" :key="item_product.id">
           <CardProduct :item="item_product"/>
         </div>
       </div>
@@ -26,9 +26,9 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from "@/components/Navbar.vue";
-import Hero from "@/components/Hero.vue";
-import CardProduct from "@/components/CardProduct.vue";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import CardProduct from "@/components/CardProduct";
 import axios from "axios";
 
 export default {

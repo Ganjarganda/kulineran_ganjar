@@ -21,3 +21,13 @@
 .card-img-top {
     border-radius: 15px;
 }
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+}
+
+.breadcrumb-item:active {
+    font-weight: bold;
+    color: black;
+}
