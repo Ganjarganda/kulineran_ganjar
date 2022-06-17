@@ -28,16 +28,16 @@
           <h2><strong>{{product.nama}}</strong></h2>
           <hr />
           <h4>Harga: <strong>Rp{{product.harga}}</strong></h4>
-          <form class="mt-4">
+          <form class="mt-4" v-on:submit.prevent>
             <div class="form-group">
                 <label for="jumlah_pemesanan">Jumlah Pesan</label>
-                <input type="number" class="form-control" placeholder="1">
+                <input type="number" class="form-control" placeholder="1" v-model="pesan.jumlah_pemesanan">
             </div>
               <div class="form-group">
                 <label for="keterangan">Keterangan</label>
-                <textarea class="form-control" placeholder="Keterangan contoh Pedas, Nasi setengah dll..." />
+                <textarea class="form-control" v-model="pesan.keterangan" placeholder="Keterangan contoh Pedas, Nasi setengah dll..." />
             </div>
-            <button type="submit" class="btn btn-success"><b-icon-cart /> Pesan</button>
+            <button type="submit" class="btn btn-success" @click="pemesanan"><b-icon-cart /> Pesan</button>
           </form>
         </div>
       </div>
@@ -57,12 +57,28 @@ export default {
   },
   data() {
     return {
-        product: {}
+        product: {},
+        pesan: {}
     }
   },
   methods:{
     setProduct(data) {
         this.product = data
+    },
+    pemesanan() {
+      console.log("cek pemesanan: ", this.pesan);
+      this.pesan.products = this.product;
+      //kirim ke keranjang
+      //Make a request using POST
+      axios.post("http://localhost:3000/keranjangs", this.pesan)
+      .then((response)=> {
+        //handle success
+        console.log("Kirim ke keranjang: Berhasil : ", response);
+      })
+      .catch((error)=> {
+        //handle error
+        console.log("Kirim ke keranjang: Gagal : ", error);
+      })
     }
   },
     mounted() {
