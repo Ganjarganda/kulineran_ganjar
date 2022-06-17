@@ -27,7 +27,7 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/keranjang">
                 Keranjang <b-icon-bag />
-                <span class="badge badge-success ml-2">0</span>
+                <span class="badge badge-success ml-2">{{ jumlah_pemesanan.length }}</span>
               </router-link>
             </li>
           </ul>
@@ -38,8 +38,34 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "NavbarComponent",
+  data() {
+    return {
+      jumlah_pemesanan: [],
+    };
+  },
+  methods: {
+    setJumlah(data) {
+      this.jumlah_pemesanan = data;
+    },
+  },
+  mounted() {
+    // Make a request using GET
+    axios
+      .get("http://localhost:3000/keranjangs")
+      .then((response) => {
+        // handle success
+        console.log("Berhasil jumlah product di keranjang : ", response);
+        this.setJumlah(response.data);
+      })
+      .catch((error) => {
+        // handle error
+        console.log("Gagal jumlah product di keranjang : ", error);
+      });
+  },
 };
 </script>
 
