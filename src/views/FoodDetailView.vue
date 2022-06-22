@@ -86,12 +86,9 @@ export default {
       this.product = data;
     },
     pemesanan() {
-      if (
-        this.pesan.jumlah_pemesanan == null ||
-        this.pesan.keterangan == null
-      ) {
+      if (this.pesan.jumlah_pemesanan == null) {
         this.informasi =
-          "Ups, mohon masukkan jumlah pemesanan dan keterangan dengan benar dan terisi";
+          "Ups, mohon masukkan jumlah pemesanan dengan benar dan terisi";
         console.log(this.informasi);
         this.$toast.open({
           type: "warning",
