@@ -101,7 +101,7 @@ export default {
         //kirim ke keranjang
         //Make a request using POST
         axios
-          .post("http://localhost:3000/keranjangs", this.pesan)
+          .post("http://localhost:4000/keranjangs", this.pesan)
           .then((response) => {
             //handle success
             console.log("Kirim ke keranjang: Berhasil : ", response);
@@ -128,7 +128,7 @@ export default {
   mounted() {
     // Make a request using GET
     axios
-      .get("http://localhost:3000/products/" + this.$route.params.id)
+      .get("http://localhost:4000/products/" + this.$route.params.id)
       .then((response) => {
         // handle success
         console.log("Berhasil : ", response);

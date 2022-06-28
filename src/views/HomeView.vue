@@ -51,7 +51,7 @@ export default {
   mounted() {
     // Make a request using GET
     axios
-      .get("http://localhost:3000/best-products")
+      .get("http://localhost:4000/best-products")
       .then( (response) => {
         // handle success
         console.log("Berhasil : ", response);
